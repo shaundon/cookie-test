@@ -15,7 +15,8 @@ app.use('/', express.static('public'));
 
 app.post('/cookie', function(req, res) {
 	var domain = req.body.domain || '';
-	res.cookie(COOKIE_NAME, 'true', {
+	var value = req.body.value || 'true';
+	res.cookie(COOKIE_NAME, value, {
 		domain: domain,
 		httpOnly: false
 	});

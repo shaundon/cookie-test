@@ -1,12 +1,14 @@
 var Cookie = {
 	set: function() {
 		var domain = $("#cookie-domain").val();
+		var value = $("#cookie-value").val();
 
 		$.ajax({
 			type: 'POST',
 			url: '/cookie',
 			data: {
-				domain: domain
+				domain: domain,
+				value: value
 			}
 		}).done(function() {
 			Notify.show("Cookie created.", "good");
